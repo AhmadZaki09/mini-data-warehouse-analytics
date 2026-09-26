@@ -1,0 +1,44 @@
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# Airflow
+airflow/logs/
+airflow/.airflow/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# NAO / local cache
+.nao/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+
+# Credentials / local configuration
+dbt/profiles/profiles.yml
+dbt/profiles/.user.yml
+nao-agent/mini-ecommerce-analytics/nao_config.yaml

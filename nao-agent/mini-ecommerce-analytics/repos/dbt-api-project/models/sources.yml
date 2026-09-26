@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+
+  - name: bronze
+    schema: bronze
+
+    tables:
+
+      - name: api_users
+
+      - name: api_products
+
+      - name: api_product_reviews
+
+      - name: api_carts
+
+      - name: api_cart_items

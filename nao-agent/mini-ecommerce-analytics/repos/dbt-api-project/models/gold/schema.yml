@@ -1,0 +1,77 @@
+version: 2
+
+models:
+
+  - name: dim_user
+    description: "User dimension"
+
+    columns:
+
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_product
+    description: "Product dimension"
+
+    columns:
+
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_sales
+    description: "Fact sales"
+
+    columns:
+
+      - name: cart_id
+        tests:
+          - not_null
+
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_user')
+                field: user_id
+
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+
+      - name: quantity
+        tests:
+          - not_null
+
+      - name: total
+        tests:
+          - not_null
+
+  - name: fact_reviews
+    description: "Fact reviews"
+
+    columns:
+
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+
+      - name: rating
+        tests:
+          - not_null
+
+      - name: review_date
+        tests:
+          - not_null
