@@ -1,14 +1,20 @@
 # Mini Data Warehouse Pipeline & Analytics Agent
 
-Pipeline data engineering yang mengintegrasikan **DummyJSON API, Apache Airflow, PostgreSQL, dbt, dan NAO Analytics Agent** untuk membangun Data Warehouse dan melakukan analisis data menggunakan Natural Language Query.
+Pipeline data engineering yang mengintegrasikan **DummyJSON API, Python, Apache Airflow, PostgreSQL, dbt, Docker, dan NAO Analytics Agent** untuk membangun Data Warehouse dan melakukan analisis data menggunakan Natural Language Query.
 
 ## Overview
 
-Project ini merupakan implementasi pipeline data dengan pendekatan **Medallion Architecture** yang terdiri dari layer Bronze, Silver, dan Gold.
+Project ini merupakan implementasi pipeline data dengan pendekatan **Medallion Architecture** yang terdiri dari layer:
 
-Data dari DummyJSON API diambil menggunakan Python dan diorkestrasi menggunakan Apache Airflow. Data kemudian dimuat ke PostgreSQL pada layer Bronze, ditransformasi menggunakan dbt hingga menghasilkan layer Silver dan Gold.
+- **Bronze** — menyimpan data hasil ekstraksi dari API
+- **Silver** — melakukan transformasi dan cleaning menggunakan dbt
+- **Gold** — menyediakan data yang telah dimodelkan untuk kebutuhan analitik
+
+Data dari **DummyJSON API** diambil menggunakan Python dan diorkestrasi menggunakan Apache Airflow. Data kemudian dimuat ke PostgreSQL pada layer Bronze dan ditransformasi menggunakan dbt hingga menghasilkan layer Silver dan Gold.
 
 Layer Gold digunakan sebagai sumber data analitik untuk **NAO Analytics Agent**, sehingga pengguna dapat mengajukan pertanyaan menggunakan bahasa natural tanpa harus menulis query SQL secara langsung.
+
+---
 
 ### Arsitektur
 
